@@ -97,3 +97,23 @@ function birthdayCakeCandles(candles) {
     }
     return total
 }
+
+// TIME CONVERSION
+
+function timeConversion(s) {
+    let hour = s.slice(0,2)
+    let minutes = s.slice(3,5)
+    let seconds = s.slice(6,8)
+    let ampm = s.slice(-2)
+    let newHour = parseInt(hour)
+    if (ampm === 'PM' && newHour < 12) {
+        newHour += 12
+    }
+    if (ampm === 'AM' && newHour === 12) {
+        newHour = 0
+    }
+    if (newHour < 10) {
+        newHour = '0' + newHour
+    }
+    return newHour + ':' + minutes + ':' + seconds
+}
