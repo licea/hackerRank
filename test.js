@@ -74,3 +74,26 @@ function miniMaxSum(arr) {
     }
     console.log(minSum + ' ' + maxSum)
 }
+
+//BIRTHDAY CAKE
+
+function findMax(list) {
+    let max = 0
+    for (let i=0; i<list.length; i++) {
+        if (list[i] > max) {
+            max = list[i]
+        }
+    }
+    return max
+}
+
+function birthdayCakeCandles(candles) {
+    var max = findMax(candles)
+    var total = 0
+    for (var i=0; i<candles.length; i++) {
+        if (candles[i] == max) {
+            total++
+        }
+    }
+    return total
+}
