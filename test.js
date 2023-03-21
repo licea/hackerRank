@@ -1,10 +1,10 @@
 //DIAGONAL DIFFERENCE SOLUTION
 
 function diagonalDifference(arr) {
-    var dimension = arr.length
-    var lrDiagonal = 0
-    var rlDiagonal = 0
-    var j = dimension - 1
+    let dimension = arr.length
+    let lrDiagonal = 0
+    let rlDiagonal = 0
+    let j = dimension - 1
     for (let i=0; i<dimension; i++) {
         lrDiagonal += arr[i][i]
         rlDiagonal += arr[i][j];
@@ -16,10 +16,10 @@ function diagonalDifference(arr) {
 //INTEGERS RATIO
 
 function plusMinus(arr) {
-    var positive = 0
-    var negative = 0
-    var zeros = 0
-    for (var i=0; i<arr.length; i++) {
+    let positive = 0
+    let negative = 0
+    let zeros = 0
+    for (let i=0; i<arr.length; i++) {
         if (arr[i] > 0) {
             positive++
         } else if (arr[i] < 0) {
@@ -47,7 +47,7 @@ function repeatChar(n, x) {
 }
 
 function staircase(n) {
-    for (var i=1; i<=n; i++) {
+    for (let i=1; i<=n; i++) {
         console.log(repeatChar(n-i, ' ') + repeatChar(i, '#'))
     }
 }
@@ -55,12 +55,12 @@ function staircase(n) {
 //MIN MAX SUM
 
 function miniMaxSum(arr) {
-    var minSum = Infinity
-    var maxSum = 0
+    let minSum = Infinity
+    let maxSum = 0
     
-    for (var i=0; i<arr.length; i++) {
+    for (let i=0; i<arr.length; i++) {
         let total = 0
-        for (var j=0; j<arr.length; j++) {
+        for (let j=0; j<arr.length; j++) {
             if (i != j) {
                 total += arr[j]
             }
@@ -88,9 +88,9 @@ function findMax(list) {
 }
 
 function birthdayCakeCandles(candles) {
-    var max = findMax(candles)
-    var total = 0
-    for (var i=0; i<candles.length; i++) {
+    let max = findMax(candles)
+    let total = 0
+    for (let i=0; i<candles.length; i++) {
         if (candles[i] == max) {
             total++
         }
