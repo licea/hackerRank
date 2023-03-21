@@ -51,3 +51,26 @@ function staircase(n) {
         console.log(repeatChar(n-i, ' ') + repeatChar(i, '#'))
     }
 }
+
+//MIN MAX SUM
+
+function miniMaxSum(arr) {
+    var minSum = Infinity
+    var maxSum = 0
+    
+    for (var i=0; i<arr.length; i++) {
+        let total = 0
+        for (var j=0; j<arr.length; j++) {
+            if (i != j) {
+                total += arr[j]
+            }
+        }
+        if (total > maxSum) {
+            maxSum = total
+        }
+        if (total < minSum) {
+            minSum = total
+        }
+    }
+    console.log(minSum + ' ' + maxSum)
+}
