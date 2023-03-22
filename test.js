@@ -166,3 +166,23 @@ let getAreas = async (shapes, values_arr) => {
         return [-1]
     }
 }
+
+// Grading students
+
+function gradingStudents(grades) {
+    let array = [];
+    for (const grade of grades) {
+        if (grade >= 38) {
+            if (grade % 5 == 4) {
+                array.push(grade + 1)
+            } else if (grade % 5 == 3) {
+                array.push(grade + 2)
+            } else {
+                array.push(grade)
+            }
+        } else {
+            array.push(grade)
+        }
+    }
+    return array
+}
