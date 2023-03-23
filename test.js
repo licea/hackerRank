@@ -186,3 +186,24 @@ function gradingStudents(grades) {
     }
     return array
 }
+
+// COUNTING APPLES AND ORANGES
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    let apple_counter = 0
+    let orange_counter = 0
+    for (let apple of apples) {
+        let apple_fall = a + apple
+        if (apple_fall >= s && apple_fall <= t) {
+            apple_counter++
+        }
+    }
+    console.log(apple_counter)
+    for (let orange of oranges) {
+        let orange_fall = b + orange
+        if (orange_fall >= s && orange_fall <= t) {
+            orange_counter++
+        }
+    }
+    console.log(orange_counter)
+}
