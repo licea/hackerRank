@@ -1,59 +1,57 @@
-let test1 = [2]
-let test2 = [20, 30, 12]
+let test1 = [3, 4]
+let test2 = [24, 48]
 
-function intersection(setA, setB) {
-  let _intersection = new Set()
-  for (let elem of setB) {
-    if (setA.has(elem)) {
-      _intersection.add(elem)
+function divideAll(x, set) {
+    let flag = true
+    for (let item of set) {
+        if (! (item % x === 0)) {
+            return false
+        }
     }
-  }
-  return _intersection
+    return true
+}
+
+function divideAllInverse(x, set) {
+    let flag = true
+    for (let item of set) {
+        if (! (x % item === 0)) {
+            return false
+        }
+    }
+    return true
 }
 
 function getTotalX(a, b) {
+    a.sort()
+    b.sort()
     let x = a[a.length - 1]
     let y = b[0]
-    let divisoresTmpA =[]
+    //console.log('X:' + x)
+    //console.log('Y: ' + y)
+    let divisoresA_List =[]
     let divisoresA = new Set()
+    let divisoresFinal = []
     for (let i=x; i<=y; i++) {
-        if (i % a[0] === 0) {
-            divisoresTmpA.push(i)
-        }
-    }
-    for (let i=x; i<=y; i++) {
-        for (let j=1; j<a.length; j++) {
-            if (i % a[j] === 0 && divisoresTmpA.includes(i)) {
+        for (let j=0; j<a.length; j++) {
+            if (i % a[j] === 0) {
                 divisoresA.add(i)
-                //console.log(i)
             }
         }
     }
-    let divisoresTmpB =[]
-    let divisoresB = new Set()
-    for (let i=x; i<=y; i++) {
-        if (b[0] % i === 0) {
-            divisoresTmpB.push(i)
-            //console.log(i)
+    //console.log(divisoresA)
+    for (let div of divisoresA) {
+        if (divideAll(div, b)){
+            divisoresA_List.push(div)
         }
     }
-    for (let i=x; i<=y; i++) {
-        for (let j=1; j<b.length; j++) {
-            if (b[j] % i === 0 && divisoresTmpB.includes(i)) {
-                divisoresB.add(i)
-                //console.log(i)
-            }
+    //console.log(divisoresA_List)
+    for (let div of divisoresA_List){
+        if ( divideAllInverse(div, a)) {
+            divisoresFinal.push(div)
         }
     }
-    const resultado = intersection(divisoresA, divisoresB)
-    let counter = 0
-    for (let item of resultado) {
-        if (item >= x && item <= y) {
-            counter++
-            console.log(item)
-        }
-    }
-    return counter
+    //console.log(divisoresFinal)
+    return divisoresFinal.length
 }
 
 
